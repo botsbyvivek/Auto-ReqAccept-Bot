@@ -6,8 +6,8 @@ from os import environ as env
 import asyncio, datetime, time
 
 
-ACCEPTED_TEXT = "Hey {user}\n\nYour Request For {chat} Is Accepted ✅"
-START_TEXT = "Hai {}\n\nI am Auto Request Accept Bot With Working For All Channel. Add Me In Your Channel To Use"
+ACCEPTED_TEXT = "👋🏻 Hey {user}\nYour Request For {chat} Is Accepted ✅"
+START_TEXT = "👋🏻 Hai {}\nI am Auto Request Accept Bot With Working For All Group & Channel. Add Me In Your Group & Channel To Use."
 
 API_ID = int(env.get('API_ID'))
 API_HASH = env.get('API_HASH')
@@ -27,8 +27,7 @@ async def start_handler(c, m):
     user_id = m.from_user.id
     if not await Data.find_one({'id': user_id}): await Data.insert_one({'id': user_id})
     button = [[        
-        InlineKeyboardButton('Updates', url='https://t.me/mkn_bots_updates'),
-        InlineKeyboardButton('Support', url='https://t.me/MKN_BOTZ_DISCUSSION_GROUP')
+        InlineKeyboardButton('Updates', url='https://t.me/QualityBotS')
     ]]
     return await m.reply_text(text=START_TEXT.format(m.from_user.mention), disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(button))
           
